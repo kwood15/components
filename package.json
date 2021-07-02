@@ -13,6 +13,8 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.14.6",
+    "@percy/cli": "^1.0.0-beta.58",
+    "@percy/storybook": "^4.0.0-beta.2",
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",
