@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "webpack serve --config webpack.config.js --env env=development",
+    "build": "webpack --config webpack.config.js --env env=production",
     "test": "echo \"Error: no test specified\" && exit 1",
     "snapshot": "percy storybook ./storybook-static",
     "storybook": "start-storybook -p 6006",
@@ -28,7 +30,12 @@
     "@storybook/react": "^6.2.9",
     "@testing-library/react": "^12.0.0",
     "babel-loader": "^8.2.2",
-    "prettier": "2.2.1"
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "html-webpack-plugin": "^4.5.2",
+    "prettier": "2.2.1",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
     "@types/node": "^15.14.0",
