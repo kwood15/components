@@ -26,14 +26,14 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
-  // plugins: [
-  //   new HtmlWebpackPlugin({
-  //     template: path.resolve(__dirname, './build/index.html'),
-  //   }),
-  //   new CleanWebpackPlugin(),
-  // ],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, './build/index.html'),
+    }),
+    new CleanWebpackPlugin(),
+  ],
   devServer: {
-    contentBase: path.join(__dirname, './src'),
+    contentBase: path.join(__dirname, './build'),
     port: 3001,
     hotOnly: true,
     compress: true,
