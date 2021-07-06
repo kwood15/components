@@ -7,8 +7,7 @@ module.exports = {
   entry: path.resolve(__dirname, 'src', 'index.tsx'),
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'build'),
-    publicPath: '/build/'
+    path: path.resolve(__dirname, 'build')
   },
   module: {
     rules: [
@@ -26,14 +25,12 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './build/index.html'),
-    }),
-    new CleanWebpackPlugin(),
-  ],
+  // plugins: [
+  //   new HtmlWebpackPlugin(),
+  //   new CleanWebpackPlugin(),
+  // ],
   devServer: {
-    contentBase: path.join(__dirname, './build'),
+    contentBase: path.join(__dirname, 'build'),
     port: 3001,
     hotOnly: true,
     compress: true,
