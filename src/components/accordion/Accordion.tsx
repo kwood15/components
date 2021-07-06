@@ -1,3 +1,5 @@
+// Accordion.module.css.d.ts
+// @ts-ignore
 import styles from './Accordion.module.css';
 
 import { ReactElement, ReactNode, useState } from 'react';
