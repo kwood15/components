@@ -1,5 +1,4 @@
-/node_modules
-/storybook-static
-/build
+node_modules
+storybook-static
 
 .env
