@@ -1,6 +1,13 @@
 // Accordion.module.css.d.ts
+
 // @ts-ignore
-import styles from './Accordion.module.css';
+import stylesA from './Accordion.css';
+
+// @ts-ignore
+import stylesB from './Accordion.module.css';
+
+console.log('stylesA', stylesA);
+console.log('stylesB', stylesB);
 
 import { ReactElement, ReactNode, useState } from 'react';
 
@@ -23,11 +30,11 @@ export default function Accordion({
   const [isOpen, setIsOpen] = useState(expanded);
 
   return (
-    <div role="tablist" className={styles.test} aria-multiselectable="true">
+    <div role="tablist" className={stylesA.test} aria-multiselectable="true">
       <div
         id={ariaLabelledBy}
         role="tab"
-        className={styles.testAgain}
+        className={stylesB.testAgain}
         aria-expanded={isOpen}
         aria-controls={ariaControls}
         onClick={() => setIsOpen(!isOpen)}

@@ -20,11 +20,24 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
-      }
+      },
       // {
       //   test: /\.css$/,
-      //   loader: 'style-loader!css-loader?modules=true&localIdentName=[name]__[local]___[hash:base64:5]'
+      //   // exclude: /node_modules/,
+      //   use: [
+      //     'style-loader',
+      //     {
+      //       loader: 'css-loader',
+      //       options: {
+      //         modules: true
+      //       }
+      //     }
+      //   ]
       // }
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader?modules=true&localIdentName=[name]__[local]___[hash:base64:5]'
+      }
       // {
       //   test: /\.css$/,
       //   use: [
@@ -77,9 +90,10 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Production'
-    })
+    }),
     // new MiniCssExtractPlugin({
-    //   filename: '[name].css',
+    //   filename: "[name].css",
+    //   chunkFilename: "[id].css"
     // })
   ]
 }

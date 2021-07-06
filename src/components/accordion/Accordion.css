@@ -1,9 +1,9 @@
 .test {
   color: green;
-  background: tomato;
+  background: pink;
 }
 
 .testAgain {
   composes: test;
-  color: yellow;
+  color: orangered;
 }
