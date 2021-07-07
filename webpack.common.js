@@ -17,16 +17,43 @@ module.exports = {
         use: ['babel-loader'],
         exclude: /node_modules/
       },
+      // {
+      //   test: /\.css$/,
+      //   use: [
+      //     'style-loader',
+      //     {
+      //       loader: 'css-loader',
+      //       options: {
+      //         importLoaders: 1,
+      //         modules: true,
+      //         sourceMap: true,
+      //         localIdentName: '[name]_[local]_[hash:base64:5]'
+      //       }
+      //     }
+      //   ]
+      // },
       {
-        test: /\.css$/,
-        use: [
-          'style-loader',
+        test: /\.s?css$/,
+        oneOf: [
           {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              modules: true
-            }
+            test: /\.module\.s?css$/,
+            use: [
+              MiniCssExtractPlugin.loader,
+              {
+                loader: 'css-loader',
+                options: { 
+                  modules: true
+                }
+              },
+              'sass-loader'
+            ]
+          },
+          {
+            use: [
+              MiniCssExtractPlugin.loader,
+              'css-loader',
+              'sass-loader'
+            ]
           }
         ]
       }
