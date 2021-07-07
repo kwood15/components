@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src', 'index.tsx'),
@@ -18,84 +18,77 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      },
-      // {
-      //   test: /\.css$/,
-      //   // exclude: /node_modules/,
-      //   use: [
-      //     'style-loader',
-      //     {
-      //       loader: 'css-loader',
-      //       options: {
-      //         modules: true
-      //       }
-      //     }
-      //   ]
-      // }
-      {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader?modules=true&localIdentName=[name]__[local]___[hash:base64:5]'
+        test: /\.(sa|sc)ss$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: true
+            }
+          }
+        ]
       }
       // {
-      //   test: /\.css$/,
+      //   test: /\.scss$/,
       //   use: [
-      //     'style-loader',
+      //     { loader: 'style-loader' },
       //     {
       //       loader: 'css-loader',
       //       options: {
-      //         import: false,
       //         modules: true
       //       }
-      //     }
-      //   ],
-      //   include: /\.module\.css$/
+      //     },
+      //     { loader: 'sass-loader' }
+      //   ]
+      // }
+      // {
+      //   test: /\.css$/i,
+      //   loader: 'css-loader',
+      //   options: {
+      //     modules: true
+      //   }
       // },
       // {
-      //   test: /\.css$/,
+      //   test: [/.css$|.scss$/],
       //   use: [
-      //     'style-loader',
-      //     'css-loader'
-      //   ],
-      //   exclude: /\.module\.css$/
+      //     MiniCssExtractPlugin.loader,
+      //     'css-loader',
+      //     'postcss-loader',
+      //     'sass-loader'
+      //   ]
       // }
       // {
-      //   test: /\.css$/,
-      //   use: ['style-loader', 'css-loader'],
-      //   loader: 'style-loader!css-loader?modules=true&localIdentName=[name]__[local]___[hash:base64:5]'
-      // }
-      // {
-      //   test: /\.css$/,
+      //   test: /\.module\.scss$/,
       //   use: [
       //     {
-      //       loader: MiniCssExtractPlugin.loader
+      //       loader: 'style-loader'
       //     },
       //     {
       //       loader: 'css-loader',
       //       options: {
       //         importLoaders: 1,
-      //         modules: true,
-      //         localIdentName: '[name]__[local]___[hash:base64:5]',
-      //         sourceMap: true
+      //         modules: true
       //       }
-      //     }
+      //     },
+      //     {
+      //       loader: 'sass-loader'
+      //     },
       //   ]
       // }
     ]
   },
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx']
-  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Production'
-    }),
+    })
     // new MiniCssExtractPlugin({
-    //   filename: "[name].css",
-    //   chunkFilename: "[id].css"
+    //   filename: '[name].[hash].css',
+    //   chunkFilename: '[id].[hash].css'
     // })
-  ]
-}
-
-
+  ],
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx']
+  }
+};

@@ -1,9 +1,7 @@
-.test {
-  color: green;
-  background: tomato;
+.accordion {
+  background: red;
 }
 
-.testAgain {
-  composes: test;
-  color: yellow;
+.accordionPanel {
+  background: blue;
 }

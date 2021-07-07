@@ -1,9 +1,0 @@
-.test {
-  color: green;
-  background: pink;
-}
-
-.testAgain {
-  composes: test;
-  color: orangered;
-}
