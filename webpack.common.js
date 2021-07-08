@@ -23,7 +23,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Test'
+      inject: true,
+      filename: 'index.html',
+      template: 'templates/index.html'
     })
   ]
 };
