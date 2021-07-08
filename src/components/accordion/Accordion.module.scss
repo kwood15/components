@@ -2,6 +2,7 @@ $accordionBg: pink;
 $accordionPanelBg: purple;
 
 .accordion {
+  display: flex;
   background: $accordionBg;
 }
 
