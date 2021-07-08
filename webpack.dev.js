@@ -16,8 +16,13 @@ module.exports = merge(common, {
             options: {
               sourceMap: true,
               importLoaders: 1,
-              modules: true,
-              localIdentName: '[name]_[local]_[hash:base64:5]'
+              modules: {
+                mode: 'local',
+                auto: true,
+                exportGlobals: true,
+                localIdentName: '[name]__[local]--[hash:base64:5]',
+                context: path.resolve(__dirname, 'src')
+              }
             }
           },
           {
@@ -37,7 +42,7 @@ module.exports = merge(common, {
     ]
   },
   devServer: {
-    contentBase: path.resolve(__dirname, '../build'),
+    contentBase: path.resolve(__dirname, 'build'),
     historyApiFallback: true,
     port: 3001,
     hotOnly: true,

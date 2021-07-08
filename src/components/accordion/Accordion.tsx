@@ -1,5 +1,5 @@
-import styles from './Accordion.module.css';
-// import styles from './Accordion.module.scss';
+// import styles from './Accordion.module.css';
+import styles from './Accordion.module.scss';
 
 import { ReactElement, ReactNode, useState } from 'react';
 
@@ -22,6 +22,7 @@ export default function Accordion({
   const [isOpen, setIsOpen] = useState(expanded);
 
   return (
+    <div>
     <div role="tablist" className={styles.accordion} aria-multiselectable="true">
       <div
         id={ariaLabelledBy}
@@ -47,6 +48,7 @@ export default function Accordion({
       >
         <div className="accordion-item__content">{children}</div>
       </div>
+    </div>
     </div>
   );
 }

@@ -1,3 +1,5 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 
@@ -12,10 +14,15 @@ module.exports = merge(common, {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 2,
-              sourceMap: false,
-              modules: true,
-              localIdentName: '[name]_[local]_[hash:base64:5]'
+              sourceMap: true,
+              importLoaders: 1,
+              modules: {
+                mode: 'local',
+                auto: true,
+                exportGlobals: true,
+                localIdentName: '[name]__[local]--[hash:base64:5]',
+                context: path.resolve(__dirname, 'src'),
+              }
             }
           },
           'postcss-loader',
@@ -25,9 +32,6 @@ module.exports = merge(common, {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Production'
-    }),
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css',
       chunkFilename: '[id].[hash].css'
