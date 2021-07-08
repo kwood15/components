@@ -5,8 +5,40 @@ const common = require('./webpack.common.js');
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
+  module: {
+    rules: [
+      {
+        test: /\.(scss|css)$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              importLoaders: 1,
+              modules: true,
+              localIdentName: '[name]_[local]_[hash:base64:5]'
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      }
+    ]
+  },
   devServer: {
-    contentBase: path.join(__dirname, 'build'),
+    contentBase: path.resolve(__dirname, '../build'),
+    historyApiFallback: true,
     port: 3001,
     hotOnly: true,
     compress: true,

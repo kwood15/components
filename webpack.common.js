@@ -13,108 +13,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.[jt]sx?$/,
+        test: /\.ts|\.tsx$/,
         use: ['babel-loader'],
         exclude: /node_modules/
-      },
-      // {
-      //   test: /\.css$/,
-      //   use: [
-      //     'style-loader',
-      //     {
-      //       loader: 'css-loader',
-      //       options: {
-      //         importLoaders: 1,
-      //         modules: true,
-      //         sourceMap: true,
-      //         localIdentName: '[name]_[local]_[hash:base64:5]'
-      //       }
-      //     }
-      //   ]
-      // },
-      {
-        test: /\.s?css$/,
-        oneOf: [
-          {
-            test: /\.module\.s?css$/,
-            use: [
-              MiniCssExtractPlugin.loader,
-              {
-                loader: 'css-loader',
-                options: { 
-                  modules: true
-                }
-              },
-              'sass-loader'
-            ]
-          },
-          {
-            use: [
-              MiniCssExtractPlugin.loader,
-              'css-loader',
-              'sass-loader'
-            ]
-          }
-        ]
       }
-      // {
-      //   test: /\.scss$/,
-      //   use: [
-      //     { loader: 'style-loader' },
-      //     {
-      //       loader: 'css-loader',
-      //       options: {
-      //         modules: true
-      //       }
-      //     },
-      //     { loader: 'sass-loader' }
-      //   ]
-      // }
-      // {
-      //   test: /\.css$/i,
-      //   loader: 'css-loader',
-      //   options: {
-      //     modules: true
-      //   }
-      // },
-      // {
-      //   test: [/.css$|.scss$/],
-      //   use: [
-      //     MiniCssExtractPlugin.loader,
-      //     'css-loader',
-      //     'postcss-loader',
-      //     'sass-loader'
-      //   ]
-      // }
-      // {
-      //   test: /\.module\.scss$/,
-      //   use: [
-      //     {
-      //       loader: 'style-loader'
-      //     },
-      //     {
-      //       loader: 'css-loader',
-      //       options: {
-      //         importLoaders: 1,
-      //         modules: true
-      //       }
-      //     },
-      //     {
-      //       loader: 'sass-loader'
-      //     },
-      //   ]
-      // }
     ]
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Production'
-    })
-    // new MiniCssExtractPlugin({
-    //   filename: '[name].[hash].css',
-    //   chunkFilename: '[id].[hash].css'
-    // })
-  ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   }
