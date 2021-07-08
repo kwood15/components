@@ -3,7 +3,7 @@ import styles from './Accordion.module.scss';
 
 import { ReactElement, ReactNode, useState } from 'react';
 
-interface AccordionProps {
+export interface AccordionProps {
   title: string;
   id: string;
   ariaControls: string;
