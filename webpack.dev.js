@@ -42,7 +42,7 @@ module.exports = merge(common, {
     ]
   },
   devServer: {
-    contentBase: path.resolve(__dirname, 'build'),
+    contentBase: path.join(__dirname, 'build'),
     historyApiFallback: true,
     port: 3001,
     hotOnly: true,
