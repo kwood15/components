@@ -7,7 +7,7 @@ module.exports = {
   webpackFinal: (config) => {
     return {
       ...config,
-      module: { 
+      module: {
         ...config.module,
         rules: custom.module.rules
       }
@@ -17,5 +17,9 @@ module.exports = {
     '../src/components/**/*.stories.mdx',
     '../src/components/**/*.stories.@(js|jsx|ts|tsx)'
   ],
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials']
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-a11y'
+  ]
 };
