@@ -1,4 +1,3 @@
-// import styles from './Accordion.module.css';
 import styles from './Accordion.module.scss';
 
 import { ReactElement, ReactNode, useState } from 'react';
@@ -22,19 +21,24 @@ export default function Accordion({
   const [isOpen, setIsOpen] = useState(expanded);
 
   return (
-    <div>
-    <div role="tablist" className={styles.accordion} aria-multiselectable="true">
+    <div
+      role="tablist"
+      className={styles.accordion}
+      aria-multiselectable="true"
+    >
       <div
         id={ariaLabelledBy}
         role="tab"
-        className={styles.accordionPanel}
+        className={styles.accordionTab}
         aria-expanded={isOpen}
         aria-controls={ariaControls}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <h3 className="accordion-tab__title">
+        <h3 className={styles.accordionTabTitle}>
           <button
-            className={`accordion-tab__title-link ${isOpen ? 'open' : ''}`}
+            className={`${styles.accordionTabTitleLink} ${
+              isOpen ? `${styles.open}` : ''
+            }`}
           >
             {title}
           </button>
@@ -43,12 +47,11 @@ export default function Accordion({
       <div
         id={ariaControls}
         aria-labelledby={ariaLabelledBy}
-        className={`accordion-item ${isOpen ? 'collapsed' : ''}`}
+        className={`${isOpen ? `${styles.collapsed}` : ''}`}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <div className="accordion-item__content">{children}</div>
+        <div className={styles.accordionItemContent}>{children}</div>
       </div>
-    </div>
     </div>
   );
 }

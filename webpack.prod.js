@@ -21,7 +21,7 @@ module.exports = merge(common, {
                 auto: true,
                 exportGlobals: true,
                 localIdentName: '[name]__[local]--[hash:base64:5]',
-                context: path.resolve(__dirname, 'src'),
+                context: path.resolve(__dirname, 'src')
               }
             }
           },

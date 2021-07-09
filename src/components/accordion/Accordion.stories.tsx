@@ -1,17 +1,29 @@
 import { Story, Meta } from '@storybook/react';
 import Accordion, { AccordionProps } from './Accordion';
-// // import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Example/Accordion',
-  component: Accordion,
+  component: Accordion
 } as Meta;
 
-const Template: Story<AccordionProps> = (args) => <Accordion {...args} />;
+const Template: Story<AccordionProps> = (args) => (
+  <>
+    <Accordion {...args}>Content</Accordion>
+    <Accordion {...args}>Content</Accordion>
+    <Accordion {...args}>Content</Accordion>
+  </>
+);
 
-export const Title = Template.bind({});
-Title.args = {
-  title: 'Test',
+export const Default = Template.bind({});
+Default.args = {
+  title: 'Title',
+  id: 'accordionLink',
+  ariaControls: 'accordionPanel',
+  ariaLabelledBy: 'accordionLink'
 };
 
-
+export const Expanded = Template.bind({});
+Expanded.args = {
+  ...Default.args,
+  expanded: true
+};

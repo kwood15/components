@@ -1,11 +1,17 @@
-$accordionBg: pink;
-$accordionPanelBg: purple;
+.accordionTabTitleLink {
+  position: relative;
+  text-decoration: none;
 
-.accordion {
-  display: flex;
-  background: $accordionBg;
+  &:after {
+    content: ' -';
+  }
 }
 
-.accordionPanel {
-  background: $accordionPanelBg;
+.open:after {
+  content: ' +';
+}
+
+.collapsed {
+  max-height: 0;
+  overflow: hidden;
 }
