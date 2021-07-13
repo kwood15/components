@@ -14,22 +14,6 @@ function Demo() {
       >
         <p>Accordion Content Accordion Content Accordion Content</p>
       </Accordion>
-      <Accordion
-        id="accordionLink1"
-        title="Accordion Title"
-        ariaControls="accordionPanel1"
-        ariaLabelledBy="accordionLink1"
-      >
-        <p>Accordion Content Accordion Content Accordion Content</p>
-      </Accordion>
-      <Accordion
-        id="accordionLink2"
-        title="Accordion Title"
-        ariaControls="accordionPanel2"
-        ariaLabelledBy="accordionLink2"
-      >
-        <p>Accordion Content Accordion Content Accordion Content</p>
-      </Accordion>
       <hr />
     </>
   );

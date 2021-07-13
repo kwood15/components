@@ -6,13 +6,7 @@ export default {
   component: Accordion
 } as Meta;
 
-const Template: Story<AccordionProps> = (args) => (
-  <>
-    <Accordion {...args}>Content</Accordion>
-    <Accordion {...args}>Content</Accordion>
-    <Accordion {...args}>Content</Accordion>
-  </>
-);
+const Template: Story<AccordionProps> = (args) => <Accordion {...args}>Content</Accordion>;
 
 export const Default = Template.bind({});
 Default.args = {
