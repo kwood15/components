@@ -1,5 +1,4 @@
 import styles from './Accordion.module.scss';
-
 import { ReactElement, ReactNode, useState } from 'react';
 
 export interface AccordionProps {

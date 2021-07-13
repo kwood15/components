@@ -10,7 +10,7 @@ const Template: Story<AccordionProps> = (args) => <Accordion {...args}>Content</
 
 export const Default = Template.bind({});
 Default.args = {
-  title: 'Title',
+  title: 'sasas',
   id: 'accordionLink',
   ariaControls: 'accordionPanel',
   ariaLabelledBy: 'accordionLink'
